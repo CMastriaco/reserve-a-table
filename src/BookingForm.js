@@ -31,31 +31,35 @@ function BookingForm() {
     }
 
     return (
-        <div>
-            <h2 className="reservation-table">Reserve a table</h2>
-            <form onSubmit={handleSubmit}>
+        <div className="all-form">
+            <div className="div-title">
+                <h2 className="reservation-table">Reserve a table</h2>
+            </div>
+            <form onSubmit={handleSubmit} className="form">
                 <fieldset>
                     <div>
-                        <label htmlFor="date">Choose a date:</label>
+                        <label htmlFor="date">Choose a date: </label>
                         <input id="date" type="date" name="date" value={date} onChange={(e) => setDate(e.target.value)} />
                     </div>
                     <div>
-                        <label htmlFor="time">Choose time:</label>
+                        <label htmlFor="time">Choose time: </label>
                         <select id="time" value={time} onChange={(e) => setTime(e.target.value)}>
                             <option value=""></option>
                             {availableTimes.map((timeOption, index) => (<option key={index} value={timeOption}>{timeOption}</option>))}
                         </select>
                     </div>
                     <div>
-                        <label htmlFor="guests">Number of guests:</label>
+                        <label htmlFor="guests">Number of guests: </label>
                         <input id="guests" type="number" name="guests" value={numberOfGuests} onChange={(e) => setNumberOfGuests(e.target.value)} />
                     </div>
                     <div>
-                        <label htmlFor="occassion">Occassion:</label>
+                        <label htmlFor="occassion">Occassion: </label>
                         <input id="occassion" type="text" name="occassion" value={occassion} onChange={(e) => setOccassion(e.target.value)} />
                     </div>
                 </fieldset>
-                <button type="submit">Submit</button>
+                <div className="button-form">
+                    <button type="submit">Submit</button>
+                </div>
             </form>
         </div>
     )
